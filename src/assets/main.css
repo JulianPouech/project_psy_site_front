@@ -5,12 +5,22 @@
     display: grid;
     grid-column: 10px ;
   }
+  .grid.grid.grid-column-2{
+    grid-template-columns: auto auto;
+  }
+
   .grid.grid-column-3{
     grid-template-columns: auto auto auto;
   }
   footer{
     display: flex;
     justify-content: space-between;
+  }
+  .flex{
+    display: flex;
+  }
+  .small-padding{
+    padding: 4px;
   }
 }
 @media screen and (max-width: 800px) {
@@ -33,6 +43,7 @@ footer{
   align-items: center;
   background: #212121;
 }
+
 
 header,section{
   padding: 0px 8px;

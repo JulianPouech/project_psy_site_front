@@ -9,7 +9,7 @@
       <li><RouterLink class="logo" :to="{ name:'home' }"><img alt="Logo du site" src="../../public/placeholder/logo.png" height="56px"></RouterLink></li>
     </ul>
     <ul>
-      <! todo add route !>
+      <li><RouterLink :to="{ name:'contact' }">Contact</RouterLink></li>
     </ul>
   </nav>
 </template>
