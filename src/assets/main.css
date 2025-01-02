@@ -1,6 +1,54 @@
 @import './base.css';
+@media screen and (min-width: 800px)
+{
+  .grid{
+    display: grid;
+    grid-column: 10px ;
+  }
+  .grid.grid-column-3{
+    grid-template-columns: auto auto auto;
+  }
+  footer{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 800px) {
+  article{
+    padding: 8px 0px;
+  }
+  footer{
+    display: block;
+    text-align: center;
+  }
+  footer div{
+    padding: 8px 0px;
+  }
+}
+footer{
+  padding: 10px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  align-items: center;
+  background: #212121;
+}
 
-#app {
+header,section{
+  padding: 0px 8px;
+  ;
+}
+h1.title{
+  font-weight: bold;
+}
+.title{
+  text-align: center;
+}
+
+.warning{
+  color: #FF8A8A;
+}
+/*#app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -32,4 +80,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+}*/
