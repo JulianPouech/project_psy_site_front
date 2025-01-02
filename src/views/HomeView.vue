@@ -7,15 +7,15 @@
   </header>
   <section class="grid grid-column-3">
     <article>
-      <h2 class="title">adulte</h2>
+      <h2 class="title">Enfant</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </article>
     <article>
-      <h2 class="title">adolecent</h2>
+      <h2 class="title">Adolescent</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </article>
     <article>
-      <h2 class="title">enfant</h2>
+      <h2 class="title">Adultes</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </article>
   </section>
