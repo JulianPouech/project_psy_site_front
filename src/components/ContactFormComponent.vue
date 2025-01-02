@@ -1,12 +1,16 @@
 <script setup lang="ts">
+
   import FormComponent from './FormComponent.vue';
+  import PhoneComponent from './PhoneComponent.vue'
   const mail = {
     name:"",
     firstName:"",
     email:"",
     message:"",
     jwk:"",
-    apiKey:""
+    apiKey:"",
+    phoneNumber:"",
+    phoneCountryCode:""
   }
   /*
   * post respons to the api and return result
@@ -29,6 +33,7 @@
           <input required v-model="mail.firstName" name="name" id="form-name">
         </div>
       </div>
+      <PhoneComponent v-model:phone="mail.phoneNumber" v-model:language="mail.phoneCountryCode"></PhoneComponent>
       <label  for="form-message">Message</label>
       <textarea required v-model="mail.message" id="form-message">
       </textarea>

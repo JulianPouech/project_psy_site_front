@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import '../model/ApiConnection.ts'
   import '../assets/form.css'
   const apiKey = import.meta.env.VITE_API_KEY;
   const url = import.meta.env.VITE_API_URL;
@@ -9,7 +8,6 @@
     methode: String,
     body: null
   });
-
   async function ApiRequest() {
     const body  = props.body;
     body.apiKey = apiKey;

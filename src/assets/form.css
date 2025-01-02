@@ -21,7 +21,7 @@
   }
 }
 
-form input,form textarea{
+form input,form textarea,form select{
   background: var(--color-background);
   color: var(--color-font);
   border: solid 2px var(--color-border);
