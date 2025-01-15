@@ -1,2 +1,2 @@
 lint:
-	yarn cspell lint "src/**" -slient
+	yarn cspell lint "src/**" --no-progress

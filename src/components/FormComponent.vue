@@ -1,27 +1,36 @@
 <script setup lang="ts">
   import '../assets/form.css'
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const emit = defineEmits(['response','error-response'])
   const url = import.meta.env.VITE_API_URL;
-  let result ="";
+
   const props = defineProps({
     route: String,
     methode: String,
     body: null
   });
+
   async function ApiRequest() {
-    const body  = props.body;
-    body.apiKey = apiKey;
-    const response = await fetch(url+props.route,{
-      method:props.methode,
-      body:JSON.stringify(body),
-    })
-    console.log(response);
-    result = await response.json();
+    try{
+      const headers = new Headers();
+      headers.append('Content-Type','application/ld+json');
+      const response = await fetch(url+props.route,{
+        method:props.methode,
+        body:JSON.stringify(props.body),
+        headers:headers,
+        mode: "cors",
+        credentials: "include"
+      })
+        emit('response',await response.json())
+    }
+    catch (error)
+    {
+      console.error(error);
+      emit('error-response',error)
+    }
   }
 </script>
 <template>
   <form @submit.prevent="ApiRequest" >
-    <h2>{{ result['response'] }}</h2>
     <slot name="body"></slot>
     <div class="submit">
     <button type="submit">
