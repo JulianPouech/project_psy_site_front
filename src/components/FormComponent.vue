@@ -1,36 +1,45 @@
 <script setup lang="ts">
-  import '../assets/form.css'
+  import router from '@/router';
+import '../assets/form.css'
+import * as api from '../model/Api.ts'
+import { Cookie } from '@/model/Cookie.ts';
   const emit = defineEmits(['response','error-response'])
   const url = import.meta.env.VITE_API_URL;
 
   const props = defineProps({
     route: String,
-    methode: String,
+    method: String,
     body: null
   });
 
-  async function ApiRequest() {
-    try{
-      const headers = new Headers();
-      headers.append('Content-Type','application/ld+json');
-      const response = await fetch(url+props.route,{
-        method:props.methode,
-        body:JSON.stringify(props.body),
-        headers:headers,
-        mode: "cors",
-        credentials: "include"
-      })
-        emit('response',await response.json())
-    }
-    catch (error)
+  async function request() {
+    const cookie = Cookie.getCookie('Authorization');
+    const header = new Headers();
+    if(props.method === undefined)
     {
-      console.error(error);
-      emit('error-response',error)
+      return;
+    }
+
+    if(cookie.name === 'Authorization')
+    {
+      header.set('Authorization','Bearer'+cookie.value)
+    }
+    try{
+      const response = await api.request(url+props.route,props.method,props.body,header);
+      emit('response', response);
+    }catch (error){
+      emit('error-response',error);
     }
   }
 </script>
 <template>
-  <form @submit.prevent="ApiRequest" >
+  <form @submit.prevent="request" >
+    <div class="head">
+      <slot name="head"></slot>
+    </div>
+    <h3 class="title">
+      <slot name="title">Title</slot>
+    </h3>
     <slot name="body"></slot>
     <div class="submit">
     <button type="submit">

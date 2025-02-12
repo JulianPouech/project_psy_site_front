@@ -4,9 +4,9 @@ import Navbar from './components/NavbarComponent.vue'
 import Footer from './components/FooterComponent.vue'
 </script>
 
-<template>
+<template class="app">
   <Navbar></Navbar>
-  <RouterView />
+  <RouterView/>
   <Footer></Footer>
 </template>
 

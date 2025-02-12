@@ -37,13 +37,14 @@
 }
 footer{
   padding: 10px;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
+  position: sticky;
+  top:100%;
   align-items: center;
   background: #212121;
 }
-
+#app{
+    height: 100vh;
+}
 
 header,section{
   padding: 0px 8px;

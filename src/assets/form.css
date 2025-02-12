@@ -1,11 +1,14 @@
 @import './base.css';
 
-@media screen and (min-width: 800px)
+@media screen and (min-width: 992px)
 {
   form{
     padding: 16px;
     border: solid 2px var(--color-border);
     border-radius: 8px;
+    position: relative;
+
+    background: var(--color-background);
   }
   input{
     display: block;
@@ -16,13 +19,16 @@
       justify-content: space-between;
   }
 }
-@media screen and (max-width:800px)
+@media screen and (max-width:992px)
 {
   form input,form textarea{
     display: block;
   }
   form div{
     margin: 8px 0px;
+  }
+  form{
+      margin: 0px 4px;
   }
 }
 form input,form textarea,form select{
@@ -34,6 +40,23 @@ form input,form textarea,form select{
   padding: 2px 4px;
   margin: 8px 0px;
 }
+.error{
+    color: white;
+    background: red;
+    text-align: center;
+    font-weight: bold;
+}
+form .head{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.require label::after{
+    content: '*';
+}
+
 .submit button{
   background: #0047D6;
   border: none;
@@ -60,3 +83,10 @@ form input,form textarea,form select{
   padding: 4px 8px;
   color: white;
 }
+.error input{
+    border: 2px solid var(--color-error);
+}
+.error h5{
+    color: var(--color-error)
+}
+

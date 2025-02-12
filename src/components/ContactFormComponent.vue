@@ -17,7 +17,7 @@
   */
 </script>
 <template>
-  <FormComponent v-bind:body="mail" v-bind:methode="'POST'" v-bind:route="'/contact/index.jso'">
+  <FormComponent v-bind:body="mail" v-bind:method="'POST'" v-bind:route="'/contact/index.jso'">
     <template v-slot:body>
       <div>
         <label for="form-email">Email</label>

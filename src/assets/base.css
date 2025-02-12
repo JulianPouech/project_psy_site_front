@@ -34,6 +34,9 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+
+  --color-error: #9E0000;
+  --border-color-error: var(--color-error);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,6 +50,9 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+
+    --color-error: #FF7A7A;
+    --border-color-error: var(--color-error);
   }
   
 }

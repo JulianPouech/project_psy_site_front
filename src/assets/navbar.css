@@ -1,8 +1,11 @@
+
 nav{
   display: flex;
   background: #a1a1a1;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
+  position: sticky;
 }
 .logo{
   padding: 0px;
