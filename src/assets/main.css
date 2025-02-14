@@ -23,6 +23,14 @@
     padding: 4px;
   }
 }
+header{
+    background: rgb(2,0,36);
+    background: linear-gradient(345deg, rgba(2,0,36,1) 0%, rgba(160,160,255,1) 35%, rgba(0,212,255,1) 100%);
+    padding: 100px 0px;
+    font-size: 24px;
+    color: white;
+}
+
 @media screen and (max-width: 800px) {
   article{
     padding: 8px 0px;
@@ -34,22 +42,32 @@
   footer div{
     padding: 8px 0px;
   }
+  header{
+    font-size: 16px;
+  }
 }
+
 footer{
   padding: 10px;
   position: sticky;
   top:100%;
   align-items: center;
   background: #212121;
+  color: white;
 }
+
 #app{
     height: 100vh;
 }
 
-header,section{
+section{
   padding: 0px 8px;
-  ;
 }
+
+.hidden{
+    display: none;
+}
+
 h1.title{
   font-weight: bold;
 }
