@@ -14,6 +14,7 @@ import { onMounted, ref } from 'vue';
     {
       header.set('Authorization','Bearer '+cookie.value)
     }
+    /** @var object */
     let curentUserAuth = jwtDecode(cookie.value);
     const response = await api.request(api.url+'api/users/'+curentUserAuth['id'],api.Method.GET,null,header)
     const jsonResponse = await response.json()

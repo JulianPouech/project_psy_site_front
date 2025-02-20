@@ -37,4 +37,8 @@ export class Cookie
           cookies[index+1]
       );
   }
+
+  static remove(name: string) {
+    document.cookie = name+"="+";"
+  }
 }

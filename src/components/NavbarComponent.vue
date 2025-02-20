@@ -1,21 +1,32 @@
 <script setup lang="ts">
   import { Cookie} from '@/model/Cookie';
   import '../assets/navbar.css'
-  import { RouterLink } from 'vue-router';
-import { jwtDecode } from 'jwt-decode';
-import { onMounted, ref } from 'vue';
-import { useUserStore } from '@/stores/useUserStore';
-const userStore = useUserStore();
-const isBurgerHidden = ref(true);
-function toggleBurrgeur(){
-    isBurgerHidden.value = !isBurgerHidden.value;
-}
-onMounted(() => {
-  const cookie = Cookie.getCookie("Authorization");
-  if(cookie.name === "Authorization"){
-    userStore.$patch({name:jwtDecode(cookie.value).username});
+  import { RouterLink, useRouter } from 'vue-router';
+  import { jwtDecode } from 'jwt-decode';
+  import { onMounted, ref } from 'vue';
+  import { useUserStore } from '@/stores/useUserStore';
+  import * as Security from '@/model/Security';
+  const userStore = useUserStore();
+  const isBurgerHidden = ref(true);
+  const router = useRouter()
+  function toggleBurrgeur(){
+      isBurgerHidden.value = !isBurgerHidden.value;
   }
-})
+
+  function logout()
+  {
+    Cookie.remove("Authorization");
+    userStore.$reset();
+    router.push('home');
+  }
+
+  onMounted(() => {
+    const cookie = Cookie.getCookie("Authorization");
+    if(cookie.name === "Authorization" && cookie.value !== ""){
+      const AuthorizationDecoder = jwtDecode(cookie.value) as any;
+      userStore.$patch({name:AuthorizationDecoder['username'],roles:AuthorizationDecoder['roles']});
+    }
+  })
 </script>
 <template>
   <nav>
@@ -29,8 +40,14 @@ onMounted(() => {
         <li><RouterLink :to="{ name:'sing-in'}">crée un compte</RouterLink></li>
         <li><RouterLink :to="{ name:'login'}">se-connecter</RouterLink></li>
       </template>
-      <template v-if="userStore.name !== ''">
+      <template v-if="userStore.name !== '' && userStore.roles">
         <li><RouterLink :to="{ name: 'account'}">{{userStore.name}}</RouterLink></li>
+      </template>
+      <template v-if="Security.isRole(userStore.roles,'ROLE_ADMIN')">
+        <li><RouterLink :to="{ name: 'admin'}">admin pages</RouterLink></li>
+      </template>
+      <template v-if="userStore.name !== ''">
+        <li><a v-on:click="logout">Ce deconecter</a></li>
       </template>
     </ul>
   </nav>

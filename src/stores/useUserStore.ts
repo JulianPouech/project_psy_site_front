@@ -3,5 +3,14 @@ import { ref } from "vue";
 
 export const useUserStore = defineStore('user',() => {
   const name = ref('');
-  return {name}
+  const roles = ref([]);
+  const id = ref(0);
+
+  function $reset()
+  {
+    name.value = '';
+    roles.value = [];
+    id.value = 0
+  }
+  return {name, roles, id, $reset}
 })

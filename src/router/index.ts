@@ -5,6 +5,7 @@ import ContactView from '../views/ContactView.vue'
 import SginInView from '@/views/SginInView.vue'
 import LoginView from '@/views/LoginView.vue'
 import AccountView from '@/views/AccountView.vue'
+import AdminView from '@/views/AdminView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/account',
       name: 'account',
       component: AccountView,
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: AdminView,
     }
   ],
 })
