@@ -1,3 +1,47 @@
-nav {
+.admin {
+    display: flex;
+    padding: 0px;
+}
+.admin nav{
+    position: absolute;
+    z-index: 0;
+    height: 90%;
+    display: block;
+    width: 8%;
+}
+.admin nav ul{
+    display: flex;
+    flex-direction: column;
+}
+.admin nav a.router-link-active{
+    background: #004FEF;
+    color: white;
+}
+.admin nav a{
+    border-radius: 0px 32px 32px 0px;
+}
+.admin section{
+    padding: 0px;
+}
+.admin div{
+    margin-left: 8%;
+}
+.admin .appointments{
+    margin: 0px auto;
+    text-align: center;
+    width: 80%;
+}
+.appointments ul{
+    list-style-type: none;
+    padding: 0px;
+}
+
+.appointments li{
+    display: flex;
+    border: 4px solid var(--color-border);
+    border-radius: 8px;
+    justify-content: space-between;
+    margin: 32px 0px;
+    padding: 16px;
 
 }

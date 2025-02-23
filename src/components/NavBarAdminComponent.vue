@@ -3,8 +3,10 @@ import { RouterLink } from 'vue-router';
 
 </script>
 <template>
-  <ul>
-    <li><RouterLink :to="{ name:'patient'}">se-connecter</RouterLink></li>
-    <li><RouterLink :to="{ name:'invoice'}">se-connecter</RouterLink></li>
-  </ul>
+  <nav>
+    <ul>
+      <li><RouterLink :to="{ name:'admin'}">Dash board</RouterLink></li>
+      <li><RouterLink :to="{ name:'admin-patient'}">patient</RouterLink></li>
+    </ul>
+  </nav>
 </template>

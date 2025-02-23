@@ -32,6 +32,7 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+  --color-background-navbar: #E7E9EB;
 
   --section-gap: 160px;
 
@@ -50,7 +51,7 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
-
+    --color-background-navbar: #252525;
     --color-error: #FF7A7A;
     --border-color-error: var(--color-error);
   }

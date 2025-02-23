@@ -14,6 +14,8 @@ export enum Method{
  * @param {string} contentType
  * @returns {Response} response
  * @throws {Error} error
+ * do request to api
+ * @example request('exemple.wip/my-data',Method::POST,body)
 */
 export async function request(url:string , method:string = Method.GET, body:Object|null = null ,headers = new Headers(),contentType = 'application/ld+json') {
       headers.append('Content-Type',contentType);

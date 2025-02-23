@@ -7,6 +7,7 @@ import router from '@/router';
 import { jwtDecode } from 'jwt-decode';
 import { ref } from 'vue';
 import PopupComponent from '@/components/PopupComponent.vue';
+import type { JwtUser } from '@/model/JwtUser';
   const userStore = useUserStore();
   let errorMessage = ref();
   const login = {
@@ -26,7 +27,8 @@ import PopupComponent from '@/components/PopupComponent.vue';
       return;
     }
     const cookie = Cookie.getCookie('Authorization')
-    userStore.$patch({name: jwtDecode(cookie.value).username});
+    const jwtUser = jwtDecode<JwtUser>(cookie.value);
+    userStore.$patch({username: jwtUser.username, id: jwtUser.id, roles: jwtUser.roles});
     router.push({name:'home'});
   }
 

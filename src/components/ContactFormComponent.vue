@@ -7,8 +7,6 @@
     firstName:"",
     email:"",
     message:"",
-    jwk:"",
-    apiKey:"",
     phoneNumber:"",
     phoneCountryCode:""
   }
